@@ -1,0 +1,4 @@
+(executable
+ (name pop3_server)
+ (public_name pop3-server)
+ (libraries pop3))
