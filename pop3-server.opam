@@ -1,0 +1,26 @@
+opam-version: "2.0"
+name: "pop3-server"
+version: "0.1"
+synopsis: "Executable entry point into the pop3 package."
+description: """
+Executable entry point into the pop3 package.
+"""
+maintainer: "Matt Harrison <matt.anthony.harrison@gmail.com>"
+authors: "Matt Harrison <matt.anthony.harrison@gmail.com>"
+license: "MIT"
+homepage: "https://github.com/m-harrison/ocaml-pop3-server"
+bug-reports: "https://github.com/m-harrison/ocaml-pop3-server/issues"
+dev-repo: "https://github.com/m-harrison/ocaml-pop3-server"
+build: [
+  ["dune" "subst"] {pinned}
+  ["dune" "build" "-p" name "-j" jobs]
+]
+build-test: [
+  ["dune" "runtest" "-p" name "-j" jobs]
+]
+depends: [
+  "alcotest" {test}
+  "dune" {build}
+  "pop3"
+  "odoc" {build}
+]
