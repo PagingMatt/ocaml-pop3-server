@@ -18,15 +18,19 @@ greeting = s.recv(buffer_size)
 print greeting
 
 # Move through session
-s.send("USER matt\r\n")
+s.send("USER test\r\n") # Memoize mailbox 'test'
 response = s.recv(buffer_size)
 print response
 
-s.send("PASS foo\r\n")
+s.send("PASS cont\r\n") # Authenticate with secret 'cont' - move to Transaction state
 response = s.recv(buffer_size)
 print response
 
-s.send("QUIT\r\n")
+s.send("QUIT\r\n") # Quit Transaction state - move to Update state
+response = s.recv(buffer_size)
+print response
+
+s.send("QUIT\r\n") # Quit Update state - terminate session
 response = s.recv(buffer_size)
 print response
 
