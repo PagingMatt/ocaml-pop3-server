@@ -8,4 +8,4 @@ module S = Server (B)
 
 let () =
   let stop, _resolver = Lwt.wait () in
-  Lwt_main.run (S.start ~hostname:"localhost" ~maildrop:"/tmp/pop3" ~stop)
+  Lwt_main.run (S.start ~hostname:"localhost" ~maildrop:"/tmp/maildrop" ~stop)
