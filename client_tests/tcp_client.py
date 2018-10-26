@@ -26,6 +26,10 @@ s.send("PASS cont\r\n") # Authenticate with secret 'cont' - move to Transaction 
 response = s.recv(buffer_size)
 print response
 
+s.send("NOOP\r\n") # Get ping from server
+response = s.recv(buffer_size)
+print response
+
 s.send("QUIT\r\n") # Quit Transaction state - move to Update state
 response = s.recv(buffer_size)
 print response
